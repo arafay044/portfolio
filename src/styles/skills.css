@@ -1,0 +1,141 @@
+.my-skills {
+  padding: 100px 220px;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* --- Dark Theme --- */
+body.dark .my-skills .skills-heading h1,
+body.dark .my-skills .skills-heading p,
+body.dark .skill-bar .skill-info {
+  color: #fff;
+}
+
+body.dark .skill-bar .progress {
+  background: #333;
+}
+
+body.dark .skill-bar .progress-fill {
+  background: #00c26f;
+}
+
+/* --- Heading --- */
+.my-skills .skills-heading h1 {
+  font-size: 36px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.my-skills .skills-heading h1::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background: #00c26f;
+  margin: 8px auto 0;
+  border-radius: 4px;
+}
+
+.my-skills .skills-heading p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* --- Tabs --- */
+.my-skills .skills-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.my-skills .tab-btn {
+  background: transparent;
+  border: 2px solid #00c26f;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #00c26f;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.my-skills .tab-btn:hover,
+.my-skills .tab-btn.active {
+  background: #00c26f;
+  color: #fff;
+}
+
+/* --- Skills Container --- */
+.my-skills .skills-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* --- Each Skill Bar --- */
+.skill-bar .skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.skill-bar .progress {
+  background: #eaeaea;
+  border-radius: 8px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.skill-bar .progress-fill {
+  background: #00c26f;
+  height: 100%;
+  border-radius: 8px;
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+  .my-skills {
+    padding: 80px 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .my-skills {
+    padding: 70px 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .my-skills {
+    padding: 60px 22px;
+  }
+  .my-skills .skills-tabs {
+    gap: 12px;
+  }
+  .my-skills .tab-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-skills .skills-heading h1 {
+    font-size: 28px;
+  }
+  .my-skills .skills-heading p {
+    font-size: 14px;
+  }
+}

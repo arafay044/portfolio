@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --primary: #00c26f;
+  --secondary: #333333;
+  --light: #f9f9f9;
+  --text: #555555;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary);
+  font-weight: 600;
+  transition: color 0.4s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+html {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+html.light {
+  background: #fff;
+  color: #111;
+}
+
+html.light body {
+  background: #fff;
+  color: #111;
+}
+
+html.light h1, 
+html.light h2, 
+html.light h3, 
+html.light h4, 
+html.light h5, 
+html.light h6 {
+  color: #111;
+}
+
+
+html.dark {
+  background: #111;
+  color: #f1f1f1;
+}
+
+html.dark body {
+  background: #111;
+  color: #f1f1f1;
+}
+
+html.dark h1, 
+html.dark h2, 
+html.dark h3, 
+html.dark h4, 
+html.dark h5, 
+html.dark h6 {
+  color: #f1f1f1;
+}
+
+
+.navbar {
+  transition: background 0.4s ease, color 0.4s ease;
+  padding: 1rem;
+}
+
+
+
+html.light .navLinks li a {
+  color: #111;
+}
+
+html.dark .navLinks li a {
+  color: #fff;
+}
+
+html.dark .navLinks li a:hover,
+html.dark .navLinks li a.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+
+.themeToggle {
+  transition: color 0.2s ease, transform 0.3s ease;
+}
+
+html.light .themeToggle {
+  color: #333;
+}
+
+html.dark .themeToggle {
+  color: #fff !important;
+}
+
+.themeToggle:hover {
+  transform: rotate(20deg);
+}
+
+
+
+::-webkit-scrollbar {
+  width: 6px; /* adjust the width */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* light background track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00c26f; /* scrollbar thumb color */
+  border-radius: 10px;       /* rounded edges */
+  border: 2px solid transparent; /* optional spacing around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #009b59; /* hover effect */
+}

@@ -1,0 +1,138 @@
+.my-footer {
+  padding: 50px 220px 20px;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme */
+html.light .my-footer {
+  background: #00c26f;
+  color: #fff;
+}
+
+html.light .footer-links a {
+  color: #fff;
+}
+
+html.light .footer-links a:hover {
+  color: #111;
+}
+
+html.light .footer-socials a {
+  color: #fff;
+}
+
+html.light .footer-socials a:hover {
+  color: #111;
+}
+
+/* Dark theme */
+html.dark .my-footer {
+  background: #111;
+  color: #fff;
+}
+
+html.dark .footer-links a {
+  color: #ccc;
+}
+
+html.dark .footer-links a:hover {
+  color: #00c26f;
+}
+
+html.dark .footer-socials a {
+  color: #ccc;
+}
+
+html.dark .footer-socials a:hover {
+  color: #00c26f;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+html.light .footer-logo {
+  color: #fff;
+}
+
+html.dark .footer-logo {
+  color: #00c26f;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.footer-copy {
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .my-footer {
+    padding: 40px 80px 20px;
+  }
+  .footer-links {
+    gap: 20px;
+  }
+  .footer-socials {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-footer {
+    padding: 35px 40px 20px;
+  }
+  .footer-links {
+    gap: 15px;
+  }
+  .footer-logo {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-footer {
+    padding: 30px 20px 15px;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-socials {
+    gap: 10px;
+  }
+  .footer-logo {
+    font-size: 18px;
+  }
+  .footer-copy {
+    font-size: 12px;
+  }
+}

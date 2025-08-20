@@ -1,0 +1,259 @@
+.my-projects {
+  padding: 100px 220px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* --- Dark Theme --- */
+body.dark .my-projects .projects-heading h1,
+body.dark .my-projects .projects-heading p,
+body.dark .my-projects .project-desc {
+  color: #fff;
+}
+
+body.dark .my-projects .project-category {
+  background: rgba(0, 194, 111, 0.2);
+}
+
+body.dark .my-projects .tag {
+  background: #333;
+  color: #eee;
+}
+
+body.dark .my-projects .btn.secondary {
+  border-color: #fff;
+  color: #fff;
+}
+
+body.dark .my-projects .btn.secondary:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* --- Heading --- */
+.my-projects .projects-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.my-projects .projects-heading h1 {
+  font-size: 36px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.my-projects .projects-heading h1::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background: #00c26f;
+  margin: 8px auto 0;
+  border-radius: 4px;
+}
+
+.my-projects .projects-heading p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* --- Filters --- */
+.my-projects .projects-filters {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 24px 0 40px;
+  flex-wrap: wrap;
+}
+
+.my-projects .filter-btn {
+  background: transparent;
+  border: 2px solid #00c26f;
+  padding: 9px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #00c26f;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.my-projects .filter-btn:hover,
+.my-projects .filter-btn.active {
+  background: #00c26f;
+  color: #fff;
+}
+
+/* --- Grid --- */
+.my-projects .project-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* --- Card --- */
+.my-projects .project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-projects .project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Thumbnail --- */
+.my-projects .project-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.my-projects .project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.4s ease;
+}
+
+.my-projects .project-card:hover .project-thumb img {
+  transform: scale(1.06);
+}
+
+/* --- Body --- */
+.my-projects .project-body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.my-projects .project-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.my-projects .project-top h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.my-projects .project-category {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 194, 111, 0.12);
+  color: #00c26f;
+  font-weight: 700;
+}
+
+.my-projects .project-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* --- Tags --- */
+.my-projects .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.my-projects .tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f2f2f2;
+  color: #333;
+  font-weight: 600;
+}
+
+/* --- Actions --- */
+.my-projects .project-actions {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+}
+
+.my-projects .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.my-projects .btn .icon {
+  font-size: 16px;
+}
+
+.my-projects .btn.primary {
+  background: #00c26f;
+  color: #fff;
+}
+
+.my-projects .btn.primary:hover {
+  background: #009b59;
+}
+
+.my-projects .btn.secondary {
+  border: 2px solid #00c26f;
+  color: #00c26f;
+  background: transparent;
+}
+
+.my-projects .btn.secondary:hover {
+  background: #00c26f;
+  color: #fff;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+  .my-projects {
+    padding: 80px 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .my-projects {
+    padding: 70px 100px;
+  }
+  .my-projects .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .my-projects {
+    padding: 60px 22px;
+  }
+  .my-projects .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-projects .projects-heading h1 {
+    font-size: 28px;
+  }
+  .my-projects .projects-heading p {
+    font-size: 14px;
+  }
+  .my-projects .filter-btn {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
