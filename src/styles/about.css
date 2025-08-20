@@ -148,4 +148,8 @@
   .my-about .experience-card h1 {
     font-size: 24px;
   }
+  .my-about .about-btn {
+    margin: 0 4rem;
+    width: fit-content;
+  }
 }

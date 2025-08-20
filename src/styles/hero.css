@@ -1,13 +1,15 @@
+/* --- Hero Section --- */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 220px;
+  padding: 80px 180px;
   min-height: 100vh;
   margin-top: 4rem;
   position: relative;
   transition: background 0.3s ease, color 0.3s ease;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  flex-wrap: wrap;
+  gap: 40px; /* spacing between content & image */
 }
 
 /* --- Dark Theme Overrides --- */
@@ -15,16 +17,13 @@ body.dark .hero-content h1,
 body.dark .hero-content p {
   color: #fff;
 }
-
 body.dark .hero-socials a {
   color: #eee;
 }
-
 body.dark .btn.secondary {
   border-color: #fff;
   color: #fff;
 }
-
 body.dark .btn.secondary:hover {
   background: #fff;
   color: #111;
@@ -36,16 +35,14 @@ body.dark .btn.secondary:hover {
   flex-direction: column;
   gap: 20px;
   position: absolute;
-  left: 100px;
+  left: 60px;
   top: 50%;
   transform: translateY(-50%);
 }
-
 .hero-socials a {
   font-size: 22px;
   transition: color 0.3s ease, transform 0.2s ease;
 }
-
 .hero-socials a:hover {
   color: #00c26f;
   transform: scale(1.2);
@@ -56,24 +53,24 @@ body.dark .btn.secondary:hover {
   flex: 1;
   max-width: 600px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
 .hero-content h1 {
-  font-size: 48px;
+  font-size: clamp(28px, 5vw, 52px);
   font-weight: 700;
   margin-bottom: 20px;
+  line-height: 1.2;
 }
-
 .hero-content h1 span {
   color: #00c26f;
 }
-
 .hero-content p {
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 18px);
   margin-bottom: 30px;
   line-height: 1.6;
 }
-
 .hero-content p span {
   font-weight: 600;
   color: #00c26f;
@@ -83,9 +80,8 @@ body.dark .btn.secondary:hover {
 .hero-buttons {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap; /* wrap buttons on small screens */
+  flex-wrap: wrap;
 }
-
 .btn {
   padding: 12px 28px;
   font-size: 15px;
@@ -94,22 +90,18 @@ body.dark .btn.secondary:hover {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
 .btn.primary {
   background: #00c26f;
   color: #fff;
 }
-
 .btn.primary:hover {
   background: #009b59;
 }
-
 .btn.secondary {
   border: 2px solid #00c26f;
   color: #00c26f;
   background: transparent;
 }
-
 .btn.secondary:hover {
   background: #00c26f;
   color: #fff;
@@ -125,11 +117,9 @@ body.dark .btn.secondary:hover {
   align-items: center;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  position: relative;
   border-radius: 60% 60% 100% 100% / 70% 70% 100% 100%;
-  margin-top: 40px; /* spacing for smaller screens */
+  flex-shrink: 0;
 }
-
 .image-bg img {
   width: 100%;
   height: 100%;
@@ -140,13 +130,12 @@ body.dark .btn.secondary:hover {
 
 /* --- Scroll Down --- */
 .scroll-down {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 40px;
   cursor: pointer;
+  display: flex;           /* ensure flexbox for centering */
+  justify-content: center; /* center the icon inside */
+  width: 100%;             /* span full width */
 }
-
 .scroll-down span {
   display: block;
   width: 24px;
@@ -154,8 +143,8 @@ body.dark .btn.secondary:hover {
   border: 2px solid #00c26f;
   border-radius: 50px;
   position: relative;
+  margin: 0 auto; /* keep the mouse icon centered */
 }
-
 .scroll-down span::before {
   content: '';
   position: absolute;
@@ -168,7 +157,6 @@ body.dark .btn.secondary:hover {
   border-radius: 50%;
   animation: scrollBounce 1.5s infinite;
 }
-
 @keyframes scrollBounce {
   0% { opacity: 0; transform: translate(-50%, 0); }
   40% { opacity: 1; transform: translate(-50%, 12px); }
@@ -177,25 +165,26 @@ body.dark .btn.secondary:hover {
 }
 
 /* --- Responsive Breakpoints --- */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .hero {
-    padding: 60px 80px;
+    padding: 60px 100px;
   }
   .hero-socials {
-    left: 50px;
-  }
-  .hero-content h1 {
-    font-size: 42px;
-  }
-  .hero-content p {
-    font-size: 16px;
+    left: 40px;
   }
 }
-
+@media (max-width: 992px) {
+  .hero {
+    padding: 50px 60px;
+  }
+  .hero-content h1 {
+    font-size: clamp(28px, 4vw, 44px);
+  }
+}
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    padding: 50px 40px;
+    padding: 50px 30px;
     text-align: center;
   }
   .hero-socials {
@@ -205,19 +194,30 @@ body.dark .btn.secondary:hover {
     transform: none;
     margin-bottom: 20px;
   }
+  .hero-content {
+    order: 1; /* text first */
+    align-items: center;
+    text-align: center;
+  }
+  .image-bg {
+    order: 2; /* image second */
+    width: 300px;
+    height: 300px;
+    margin: 20px auto 0;
+  }
   .hero-buttons {
     justify-content: center;
   }
-  .image-bg {
-    margin-top: 30px;
-    width: 300px;
-    height: 300px;
-  }
   .hero-content h1 {
-    font-size: 36px;
+    font-size: clamp(26px, 6vw, 36px);
+  }
+  .scroll-down {
+    order: 3;
+    /* margin: 30px auto 0;   */
+    margin-top: -12rem;
+    width: auto;          /* shrink to content on mobile */
   }
 }
-
 @media (max-width: 480px) {
   .hero {
     padding: 40px 20px;
@@ -227,10 +227,10 @@ body.dark .btn.secondary:hover {
     height: 240px;
   }
   .hero-content h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
   .hero-content p {
-    font-size: 15px;
+    font-size: 14px;
   }
   .btn {
     padding: 10px 20px;
