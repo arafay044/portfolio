@@ -13,7 +13,7 @@ const Experience = () => {
     },
     {
       title: "F.sc",
-      subtitle: "Punjab Group of collages",
+      subtitle: "Punjab Group of colleges",
       duration: "2020 - 2022",
       desc: "Completed higher secondary education with science."
     }
