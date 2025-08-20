@@ -213,8 +213,7 @@ body.dark .btn.secondary:hover {
   }
   .scroll-down {
     order: 3;
-    /* margin: 30px auto 0;   */
-    margin-top: -12rem;
+    margin: 30px auto 0;  
     width: auto;          /* shrink to content on mobile */
   }
 }
