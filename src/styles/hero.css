@@ -93,6 +93,7 @@ body.dark .btn.secondary:hover {
 .btn.primary {
   background: #00c26f;
   color: #fff;
+  cursor: pointer;
 }
 .btn.primary:hover {
   background: #009b59;

@@ -24,7 +24,7 @@ const Hero = () => {
             Hi, I'm <span>Abdul Rafay</span>
           </h1>
           <p>
-            A passionate <span>Frontend Developer</span> building modern,
+            A passionate <span>Full Stack Developer</span> building modern,
             responsive, and accessible web applications.
           </p>
           <div className="hero-buttons">

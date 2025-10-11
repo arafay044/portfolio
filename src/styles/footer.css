@@ -34,6 +34,7 @@ html.dark .my-footer {
 
 html.dark .footer-links a {
   color: #ccc;
+  cursor: pointer;
 }
 
 html.dark .footer-links a:hover {

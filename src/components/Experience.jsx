@@ -21,15 +21,21 @@ const Experience = () => {
 
   const professionalData = [
     {
+      title: "Full Stack Developer",
+      subtitle: "People Per Hour",
+      duration: "2025 - Present",
+      desc: "Building modern, responsive apps using React, Node, and MongoDB."
+    },
+    {
       title: "Frontend Developer",
       subtitle: "Crypstac",
-      duration: "2025 - Present",
+      duration: "July 2025 - September 2025",
       desc: "Building modern, responsive apps using React, Tailwind, and Javascript."
     },
     {
-      title: "Intern",
+      title: "Web Developer",
       subtitle: "Softezm",
-      duration: "2025",
+      duration: "Auguest 2025 - Present",
       desc: "Worked on frontend features, bug fixing, and Agile workflows."
     }
   ];

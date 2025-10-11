@@ -44,6 +44,7 @@ html.dark .navbar {
   margin: 0;
   padding: 0;
   align-items: center;
+  cursor: pointer;
 }
 .navLinks li a {
   text-decoration: none;
