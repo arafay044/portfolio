@@ -27,7 +27,7 @@ const Experience = () => {
       desc: "Building modern, responsive apps using React, Node, and MongoDB."
     },
     {
-      title: "Frontend Developer",
+      title: "MERN Stack Developer",
       subtitle: "Crypstac",
       duration: "July 2025 - September 2025",
       desc: "Building modern, responsive apps using React, Tailwind, and Javascript."
