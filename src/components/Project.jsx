@@ -34,6 +34,15 @@ const Projects = () => {
       demo: "https://react-blog-app-lake.vercel.app/",
       code: "https://github.com/arafay044/react-blog-app",
     },
+    {
+  title: "Classic Boats",
+  category: "Fullstack",
+  img: "/images/boats.png",
+  desc: "Private marketplace for classic & vintage boats with admin approval, Stripe payments, and Cloudinary media uploads.",
+  tags: ["React", "Node.js", "MongoDB", "Express", "Stripe", "Cloudinary"],
+  demo: "https://classic-boats-frontend.vercel.app/",
+  code: "https://github.com/arafay044/classic-boats-backend",
+},
     
   ];
 
