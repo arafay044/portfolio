@@ -5,26 +5,6 @@ import "../styles/project.css";
 
 const Projects = () => {
   const projects = [
-    
-    {
-      title: "E-Commerce Website",
-      category: "Frontend",
-      img: "/images/amazon.png",
-      desc: " orders, users, and payments.",
-      tags: ["HTML", "CSS", "JavaScript"],
-      demo: "https://arafay044.github.io/amazone-clone/",
-      code: "https://github.com/arafay044/amazone-clone"
-    },
-    {
-      title: "University Site",
-      category: "Frontend",
-      img: "/images/university.png",
-      desc: "University site with hero, timeline, and courses grid.",
-      tags: ["Html", "CSS", "Javascript"],
-      demo: "https://arafay044.github.io/university-site/",
-      code: "https://github.com/arafay044/university-site"
-
-    },
     {
       title: "Blogify",
       category: "Fullstack",
@@ -35,14 +15,50 @@ const Projects = () => {
       code: "https://github.com/arafay044/react-blog-app",
     },
     {
-  title: "Classic Boats",
-  category: "Fullstack",
-  img: "/images/boats.png",
-  desc: "Private marketplace for classic & vintage boats with admin approval, Stripe payments, and Cloudinary media uploads.",
-  tags: ["React", "Node.js", "MongoDB", "Express", "Stripe", "Cloudinary"],
-  demo: "https://classic-boats-frontend.vercel.app/",
-  code: "https://github.com/arafay044/classic-boats-backend",
-},
+      title: "Classic Boats",
+      category: "Fullstack",
+      img: "/images/boats.png",
+      desc: "Private marketplace for classic & vintage boats with admin approval, Stripe payments, and Cloudinary media uploads.",
+      tags: ["React", "Node.js", "MongoDB", "Express", "Stripe", "Cloudinary"],
+      demo: "https://classic-boats-frontend.vercel.app/",
+      code: "https://github.com/arafay044/classic-boats-backend",
+    },
+    {
+      title: "AI-Based E-Commerce Platform",
+      category: "Fullstack",
+      img: "/images/ecommerce-ai.png",
+      desc: "Full-stack e-commerce platform with dual interfaces: customer storefront and admin dashboard. Features Stripe payments, Cloudinary image management, JWT authentication, and real-time inventory tracking.",
+      tags: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Stripe",
+        "Cloudinary",
+        "JWT",
+      ],
+      demo: "https://ecommerce-webapp-aibased.netlify.app/",
+      code: "https://github.com/arafay044/ecommerce-backend",
+      adminDemo: "https://ecommerce-admin-dashboard-ar.netlify.app/",
+    },
+    {
+      title: "E-Commerce Website",
+      category: "Frontend",
+      img: "/images/amazon.png",
+      desc: " orders, users, and payments.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      demo: "https://arafay044.github.io/amazone-clone/",
+      code: "https://github.com/arafay044/amazone-clone",
+    },
+    {
+      title: "University Site",
+      category: "Frontend",
+      img: "/images/university.png",
+      desc: "University site with hero, timeline, and courses grid.",
+      tags: ["Html", "CSS", "Javascript"],
+      demo: "https://arafay044.github.io/university-site/",
+      code: "https://github.com/arafay044/university-site",
+    },
     
   ];
 
@@ -60,13 +76,11 @@ const Projects = () => {
 
   return (
     <section className="my-projects" id="projects">
-     
       <div className="projects-heading">
         <h1>Projects</h1>
         <p>Selected Work</p>
       </div>
 
-     
       <div className="projects-filters">
         {categories.map((cat) => (
           <button
@@ -79,7 +93,6 @@ const Projects = () => {
         ))}
       </div>
 
-     
       <div className="project-grid">
         {filtered.map((proj, i) => (
           <article className="project-card" key={i}>
@@ -97,7 +110,9 @@ const Projects = () => {
 
               <div className="project-tags">
                 {proj.tags.map((t, idx) => (
-                  <span className="tag" key={idx}>{t}</span>
+                  <span className="tag" key={idx}>
+                    {t}
+                  </span>
                 ))}
               </div>
 
