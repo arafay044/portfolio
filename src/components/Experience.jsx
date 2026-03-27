@@ -35,7 +35,7 @@ const Experience = () => {
     {
       title: "Web Developer",
       subtitle: "Softezm",
-      duration: "Auguest 2025 - Present",
+      duration: "Auguest 2025 - Nov 2025",
       desc: "Worked on frontend features, bug fixing, and Agile workflows."
     }
   ];
