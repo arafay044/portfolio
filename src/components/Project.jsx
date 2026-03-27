@@ -25,7 +25,7 @@ const Projects = () => {
     },
     {
       title: "Real-Time Chat App",
-      category: "Full Stack",
+      category: "Fullstack",
       img: "/images/chat-app.png",
       desc: "A real-time messaging platform with instant delivery, secure JWT authentication, and live user status tracking using Socket.io.",
       tags: ["React", "Node.js", "Socket.io", "MongoDB"],
