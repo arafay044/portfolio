@@ -24,6 +24,15 @@ const Projects = () => {
       code: "https://github.com/arafay044/classic-boats-backend",
     },
     {
+      title: "Real-Time Chat App",
+      category: "Full Stack",
+      img: "/images/chat-app.png",
+      desc: "A real-time messaging platform with instant delivery, secure JWT authentication, and live user status tracking using Socket.io.",
+      tags: ["React", "Node.js", "Socket.io", "MongoDB"],
+      demo: "https://chatapp-mu-blue.vercel.app/login",
+      code: "https://github.com/arafay044/chatapp", 
+    },
+    {
       title: "AI-Based E-Commerce Platform",
       category: "Fullstack",
       img: "/images/ecommerce-ai.png",
@@ -59,7 +68,6 @@ const Projects = () => {
       demo: "https://arafay044.github.io/university-site/",
       code: "https://github.com/arafay044/university-site",
     },
-    
   ];
 
   const [activeFilter, setActiveFilter] = useState("All");
