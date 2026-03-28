@@ -9,21 +9,22 @@ const Skills = () => {
       { name: "HTML", level: 95 },
       { name: "CSS", level: 90 },
       { name: "JavaScript", level: 85 },
-      { name: "React", level: 80 },
-      { name: "Tailwind", level: 80 },
+      { name: "React", level: 90 },
+      { name: "Tailwind", level: 90 },
+      { name: "Next.Js", level: 80 },
 
     ],
     backend: [
-      { name: "PHP", level: 75 },
       {name: "Node.js" , level: 80},
       {name: "Express.js" , level: 80},
       {name: "MongoDB" , level: 75},
       { name: "MySQL", level: 65 },
-      { name: "Firebase", level: 70}
+      { name: "PostgreSQL", level: 65 },
+      { name: "Firebase", level: 70},
     ],
     programming: [
       { name: "C++", level: 80 },
-      { name: "C#", level: 75 },
+      { name: "Python", level: 75 },
     ],
     misc: [
       { name: "Git & GitHub", level: 85 },
