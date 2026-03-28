@@ -9,7 +9,7 @@ const Experience = () => {
       title: "Bachelor of Computer Science",
       subtitle: "PMAS Arid Agriculture University",
       duration: "2023 - 2027",
-      desc: "Specialized in Computer Scence. Focused on frontend development, UI/UX, and modern web technologies."
+      desc: "Specialized in Computer Scence. Focused on Fullstack development, UI/UX, and modern web technologies."
     },
     {
       title: "F.sc",
@@ -30,10 +30,10 @@ const Experience = () => {
       title: "MERN Stack Developer",
       subtitle: "Crypstac",
       duration: "July 2025 - September 2025",
-      desc: "Building modern, responsive apps using React, Tailwind, and Javascript."
+      desc: "Building modern, responsive apps using MERN Stack."
     },
     {
-      title: "Web Developer",
+      title: "Frontend Developer",
       subtitle: "Softezm",
       duration: "Auguest 2025 - Nov 2025",
       desc: "Worked on frontend features, bug fixing, and Agile workflows."
