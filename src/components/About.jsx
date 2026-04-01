@@ -19,7 +19,7 @@ const About = () => {
 
         <div className="about-right">
           <p className="about-desc">
-            I am a passionate <span>Fullstack Developer</span> with 4+ years of
+            I am a passionate <span>Fullstack Developer</span> with 2+ years of
             experience building modern, responsive, and accessible web
             applications. I love solving problems with clean code and bringing
             ideas to life through design & development.
@@ -27,7 +27,7 @@ const About = () => {
 
           <div className="about-experience">
             <div className="experience-card">
-              <h1>04+</h1>
+              <h1>02+</h1>
               <p>Years XP</p>
             </div>
             <div className="experience-card">
