@@ -20,7 +20,6 @@ const Experience = () => {
   ];
 
   const professionalData = [
-    [
       {
         title: "Full Stack Engineer",
         subtitle: "AlxTel, Inc.",
@@ -51,7 +50,6 @@ const Experience = () => {
         duration: "July 2025 - September 2025",
         desc: "Built React.js UI components and Node.js/Express.js REST API endpoints for a live production application.",
       },
-    ],
   ];
 
   const timelineData =
