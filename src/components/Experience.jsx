@@ -9,38 +9,53 @@ const Experience = () => {
       title: "Bachelor of Computer Science",
       subtitle: "PMAS Arid Agriculture University",
       duration: "2023 - 2027",
-      desc: "Specialized in Computer Scence. Focused on Fullstack development, UI/UX, and modern web technologies."
+      desc: "Specialized in Computer Scence. Focused on Fullstack development, UI/UX, and modern web technologies.",
     },
     {
       title: "F.sc",
       subtitle: "Punjab Group of colleges",
       duration: "2020 - 2022",
-      desc: "Completed higher secondary education with science."
-    }
+      desc: "Completed higher secondary education with science.",
+    },
   ];
 
   const professionalData = [
-    {
-      title: "Full Stack Developer",
-      subtitle: "People Per Hour",
-      duration: "2025 - Present",
-      desc: "Building modern, responsive apps using React, Node, and MongoDB."
-    },
-    {
-      title: "MERN Stack Developer",
-      subtitle: "Crypstac",
-      duration: "July 2025 - September 2025",
-      desc: "Building modern, responsive apps using MERN Stack."
-    },
-    {
-      title: "Frontend Developer",
-      subtitle: "Softezm",
-      duration: "Auguest 2025 - Nov 2025",
-      desc: "Worked on frontend features, bug fixing, and Agile workflows."
-    }
+    [
+      {
+        title: "Full Stack Engineer",
+        subtitle: "AlxTel, Inc.",
+        duration: "April 2026 - Present",
+        desc: "Contributing to the development of a government procurement automation platform using Python, FastAPI, and React.",
+      },
+      {
+        title: "Full Stack Engineer",
+        subtitle: "AizTek Technologies",
+        duration: "April 2026 - Present",
+        desc: "Assisting in building scalable enterprise software solutions with React, Tailwind CSS, Python, and Grails.",
+      },
+      {
+        title: "Full Stack Developer (Freelance)",
+        subtitle: "PeoplePerHour",
+        duration: "Jan 2025 - Feb 2026",
+        desc: "Engineered 5+ full-stack MERN web applications for international clients with secure REST APIs.",
+      },
+      {
+        title: "Web Developer",
+        subtitle: "Softezm",
+        duration: "August 2025 - Nov 2025",
+        desc: "Led full-stack development of a SaaS School Management System using React, Node.js, and Tailwind CSS.",
+      },
+      {
+        title: "MERN Stack Developer Intern",
+        subtitle: "Crypstac",
+        duration: "July 2025 - September 2025",
+        desc: "Built React.js UI components and Node.js/Express.js REST API endpoints for a live production application.",
+      },
+    ],
   ];
 
-  const timelineData = activeTab === "academic" ? academicData : professionalData;
+  const timelineData =
+    activeTab === "academic" ? academicData : professionalData;
 
   return (
     <section className="my-experience" id="experience">
