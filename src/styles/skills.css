@@ -5,18 +5,18 @@
 }
 
 /* --- Dark Theme --- */
-body.dark .my-skills .skills-heading h1,
-body.dark .my-skills .skills-heading p,
-body.dark .skill-bar .skill-info {
-  color: #fff;
+html.dark .my-skills .skills-heading h1,
+html.dark .my-skills .skills-heading p,
+html.dark .skill-bar .skill-info {
+  color: #ddd;
 }
 
-body.dark .skill-bar .progress {
-  background: #333;
+html.dark .skill-bar .progress {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-body.dark .skill-bar .progress-fill {
-  background: #00c26f;
+html.dark .skill-bar .progress-fill {
+  background: linear-gradient(90deg, #00c26f, #00e87f);
 }
 
 /* --- Heading --- */
@@ -80,6 +80,23 @@ body.dark .skill-bar .progress-fill {
   gap: 25px;
 }
 
+/* --- 3D Skill Bar Reveal --- */
+.skill-bar {
+  opacity: 0;
+  transform: perspective(600px) rotateX(30deg) translateY(25px);
+}
+
+.skill-bar--visible {
+  animation: skill3dReveal 0.55s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes skill3dReveal {
+  to {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg) translateY(0);
+  }
+}
+
 /* --- Each Skill Bar --- */
 .skill-bar .skill-info {
   display: flex;
@@ -97,12 +114,22 @@ body.dark .skill-bar .progress-fill {
   overflow: hidden;
 }
 
+/* CSS animation with custom property — replays on every remount (tab switch) */
 .skill-bar .progress-fill {
-  background: #00c26f;
   height: 100%;
   border-radius: 8px;
   width: 0;
-  transition: width 1s ease-in-out;
+  background: linear-gradient(90deg, #00c26f, #00e87f);
+  box-shadow: 0 0 10px rgba(0, 194, 111, 0.4);
+}
+
+.skill-bar--visible .progress-fill {
+  animation: fillBar 1.1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0%; }
+  to   { width: var(--target); }
 }
 
 /* --- Responsive --- */

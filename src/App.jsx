@@ -1,11 +1,27 @@
-import Portfolio from './pages/Portfolio'
+import { useState, useCallback } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Portfolio from "./pages/Portfolio";
+import PreLoader from "./components/PreLoader";
+import NotFound from "./pages/NotFound";
 
-const App = () => {
+const Home = () => {
+  const [preloaderDone, setPreloaderDone] = useState(false);
+  const handleDone = useCallback(() => setPreloaderDone(true), []);
   return (
-    <div>
-     <Portfolio/>
-    </div>
-  )
-}
+    <>
+      {!preloaderDone && <PreLoader onDone={handleDone} />}
+      <Portfolio />
+    </>
+  );
+};
 
-export default App
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/"  element={<Home />} />
+      <Route path="*"  element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
+);
+
+export default App;

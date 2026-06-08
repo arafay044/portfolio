@@ -1,62 +1,75 @@
 import { useState } from "react";
 import "../styles/skills.css";
+import useInView from "../hooks/useInView";
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState("frontend");
+  const [tabKey, setTabKey]       = useState(0);
+  const [ref, inView]             = useInView(0.2);
+
+  const handleTab = (tab) => {
+    setActiveTab(tab);
+    setTabKey((k) => k + 1);
+  };
 
   const skillsData = {
     frontend: [
-      { name: "HTML", level: 95 },
-      { name: "CSS", level: 90 },
-      { name: "JavaScript", level: 85 },
-      { name: "React", level: 90 },
-      { name: "Tailwind", level: 90 },
-      { name: "Next.Js", level: 80 },
-
+      { name: "HTML",         level: 95 },
+      { name: "CSS",          level: 90 },
+      { name: "JavaScript",   level: 85 },
+      { name: "TypeScript",   level: 75 },
+      { name: "React",        level: 90 },
+      { name: "Tailwind CSS", level: 90 },
+      { name: "Next.js",      level: 80 },
     ],
     backend: [
-      {name: "Node.js" , level: 80},
-      {name: "Express.js" , level: 80},
-      {name: "MongoDB" , level: 75},
-      { name: "MySQL", level: 65 },
-      { name: "PostgreSQL", level: 65 },
-      { name: "Firebase", level: 70},
+      { name: "Node.js",     level: 80 },
+      { name: "Express.js",  level: 80 },
+      { name: "FastAPI",     level: 75 },
+      { name: "MongoDB",     level: 75 },
+      { name: "PostgreSQL",  level: 65 },
+      { name: "MySQL",       level: 65 },
     ],
     programming: [
-      { name: "C++", level: 80 },
-      { name: "Python", level: 75 },
+      { name: "JavaScript (ES6+)", level: 85 },
+      { name: "Python",            level: 75 },
+      { name: "C++",               level: 80 },
+      { name: "Groovy",            level: 65 },
     ],
     misc: [
       { name: "Git & GitHub", level: 85 },
-      { name: "Linux", level: 70 },
+      { name: "Socket.IO",    level: 75 },
+      { name: "Postman",      level: 80 },
+      { name: "Linux",        level: 70 },
     ],
   };
 
   return (
     <section className="my-skills" id="skills">
-      {/* Heading */}
       <div className="skills-heading">
         <h1>Skills</h1>
         <p>My Technical Expertise</p>
       </div>
 
-      {/* Tabs */}
       <div className="skills-tabs">
         {Object.keys(skillsData).map((tab) => (
           <button
             key={tab}
             className={`tab-btn ${activeTab === tab ? "active" : ""}`}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => handleTab(tab)}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
           </button>
         ))}
       </div>
 
-      {/* Skill Bars */}
-      <div className="skills-container">
+      <div className="skills-container" ref={ref} key={tabKey}>
         {skillsData[activeTab].map((skill, index) => (
-          <div className="skill-bar" key={index}>
+          <div
+            className={`skill-bar ${inView ? "skill-bar--visible" : ""}`}
+            key={`${activeTab}-${index}-${tabKey}`}
+            style={{ animationDelay: `${index * 0.08}s` }}
+          >
             <div className="skill-info">
               <span>{skill.name}</span>
               <span>{skill.level}%</span>
@@ -64,8 +77,11 @@ const Skills = () => {
             <div className="progress">
               <div
                 className="progress-fill"
-                style={{ width: `${skill.level}%` }}
-              ></div>
+                style={{
+                  "--target": `${skill.level}%`,
+                  animationDelay: `${index * 0.1}s`,
+                }}
+              />
             </div>
           </div>
         ))}

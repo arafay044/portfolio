@@ -4,29 +4,29 @@
 }
 
 /* --- Dark Theme --- */
-body.dark .my-projects .projects-heading h1,
-body.dark .my-projects .projects-heading p,
-body.dark .my-projects .project-desc {
+html.dark .my-projects .projects-heading h1,
+html.dark .my-projects .projects-heading p,
+html.dark .my-projects .project-desc {
+  color: #ddd;
+}
+
+html.dark .my-projects .project-category {
+  background: rgba(0, 194, 111, 0.18);
+}
+
+html.dark .my-projects .tag {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ddd;
+}
+
+html.dark .my-projects .btn.secondary {
+  border-color: rgba(0, 194, 111, 0.7);
+  color: #00c26f;
+}
+
+html.dark .my-projects .btn.secondary:hover {
+  background: #00c26f;
   color: #fff;
-}
-
-body.dark .my-projects .project-category {
-  background: rgba(0, 194, 111, 0.2);
-}
-
-body.dark .my-projects .tag {
-  background: #333;
-  color: #eee;
-}
-
-body.dark .my-projects .btn.secondary {
-  border-color: #fff;
-  color: #fff;
-}
-
-body.dark .my-projects .btn.secondary:hover {
-  background: #fff;
-  color: #111;
 }
 
 /* --- Heading --- */
@@ -91,19 +91,28 @@ body.dark .my-projects .btn.secondary:hover {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* --- Card --- */
+/* --- 3D Card Reveal Animation --- */
 .my-projects .project-card {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: perspective(900px) rotateX(20deg) translateY(40px) scale(0.95);
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.my-projects .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+.my-projects .project-card.card-visible {
+  animation: card3dReveal 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes card3dReveal {
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateX(0deg) translateY(0px) scale(1);
+  }
 }
 
 /* --- Thumbnail --- */
@@ -122,7 +131,56 @@ body.dark .my-projects .btn.secondary:hover {
 }
 
 .my-projects .project-card:hover .project-thumb img {
-  transform: scale(1.06);
+  transform: scale(1.08);
+}
+
+/* --- Hover Overlay --- */
+.my-projects .project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.my-projects .project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.my-projects .overlay-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.my-projects .overlay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  background: #00c26f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  transform: translateY(10px);
+}
+
+.my-projects .project-card:hover .overlay-btn {
+  transform: translateY(0);
+  transition: background 0.2s ease, transform 0.3s ease;
+}
+
+.my-projects .overlay-btn:hover {
+  background: #009b59;
 }
 
 /* --- Body --- */
@@ -155,6 +213,17 @@ body.dark .my-projects .btn.secondary:hover {
   font-weight: 700;
 }
 
+.my-projects .project-problem {
+  font-size: 12px;
+  font-weight: 700;
+  color: #00c26f;
+  letter-spacing: 0.2px;
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+html.dark .my-projects .project-problem { color: #00e87f; }
+
 .my-projects .project-desc {
   font-size: 14px;
   color: #555;
@@ -177,47 +246,34 @@ body.dark .my-projects .btn.secondary:hover {
   font-weight: 600;
 }
 
-/* --- Actions --- */
-.my-projects .project-actions {
+/* --- Minimal text links (mobile) / hidden on desktop (overlay handles it) --- */
+.my-projects .project-links {
   margin-top: 6px;
   display: flex;
-  gap: 10px;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.my-projects .btn {
+.my-projects .proj-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  font-size: 14px;
+  gap: 5px;
+  font-size: 13px;
   font-weight: 700;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.my-projects .btn .icon {
-  font-size: 16px;
-}
-
-.my-projects .btn.primary {
-  background: #00c26f;
-  color: #fff;
-}
-
-.my-projects .btn.primary:hover {
-  background: #009b59;
-}
-
-.my-projects .btn.secondary {
-  border: 2px solid #00c26f;
   color: #00c26f;
-  background: transparent;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.my-projects .btn.secondary:hover {
-  background: #00c26f;
-  color: #fff;
+.my-projects .proj-link:hover {
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
+
+/* Desktop: overlay already handles the links on hover — hide text links */
+@media (hover: hover) and (pointer: fine) {
+  .my-projects .project-links { display: none; }
 }
 
 /* --- Responsive --- */

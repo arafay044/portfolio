@@ -1,62 +1,118 @@
-/* --- Navbar --- */
+/* --- Navbar Base --- */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* full width for all devices */
+  width: 100%;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
-  transition: background 0.3s ease, color 0.3s ease;
+  padding: 0 2.5rem;
+  z-index: 10000;
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-/* Light/Dark Mode */
+/* default (top of page) */
 html.light .navbar {
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(0px);
 }
+
 html.dark .navbar {
-  background-color: #111;
+  background: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(0px);
+}
+
+/* scrolled — glassmorphism kicks in */
+html.light .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 194, 111, 0.12);
+}
+
+html.dark .navbar.scrolled {
+  background: rgba(15, 15, 15, 0.82);
+  backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 194, 111, 0.12);
 }
 
 /* --- Logo --- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 18px;
+  gap: 10px;
+  font-size: 17px;
   font-weight: 500;
   cursor: pointer;
+  letter-spacing: -0.3px;
   transition: color 0.3s ease;
+  user-select: none;
 }
-.logo:hover {
+
+.logo strong {
   color: #00c26f;
+  font-weight: 700;
+}
+
+.logo-icon {
+  font-size: 20px;
+  color: #00c26f;
+  transition: transform 0.4s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(15deg) scale(1.15);
 }
 
 /* --- Nav Links --- */
 .navLinks {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 4px;
   margin: 0;
   padding: 0;
   align-items: center;
-  cursor: pointer;
 }
+
 .navLinks li a {
+  position: relative;
+  display: inline-block;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  padding-bottom: 4px;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  color: #333;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.25s ease, background 0.25s ease;
 }
-.navLinks li:hover a {
+
+html.light .navLinks li a { color: #444; }
+html.dark  .navLinks li a { color: #ccc; }
+
+.navLinks li a::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: #00c26f;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+}
+
+.navLinks li a:hover,
+.navLinks li a.nav-active {
   color: #00c26f !important;
-  border-bottom: 2px solid #00c26f;
+}
+
+.navLinks li a:hover::after,
+.navLinks li a.nav-active::after {
+  transform: scaleX(1);
 }
 
 /* --- Theme Toggle --- */
@@ -67,51 +123,62 @@ html.dark .navbar {
   border: none;
   outline: none;
   color: inherit;
-  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  align-items: center;
 }
+
 .themeToggle:hover {
   color: #00c26f;
-  transform: rotate(20deg);
+  transform: rotate(25deg) scale(1.1);
+  background: rgba(0, 194, 111, 0.08);
 }
 
-/* --- Menu Icon (hamburger/close) --- */
+/* --- Hamburger --- */
 .menuIcon {
   display: none;
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
   z-index: 1100;
+  color: inherit;
 }
 
-/* --- Mobile Styles --- */
-@media (max-width: 768px) {
+/* --- Mobile --- */
+@media (max-width: 900px) {
   .navLinks {
     position: fixed;
     top: 70px;
     right: -100%;
     flex-direction: column;
-    background-color: #fff;
-    width: 70%;
+    width: 260px;
     height: calc(100vh - 70px);
-    gap: 20px;
-    padding-top: 2rem;
-    transition: right 0.3s ease-in-out;
+    gap: 4px;
+    padding: 2rem 1.5rem;
+    transition: right 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 999;
+    border-left: 1px solid rgba(0, 194, 111, 0.15);
+  }
+
+  html.light .navLinks {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
   }
 
   html.dark .navLinks {
-    background-color: #111;
+    background: rgba(17, 17, 17, 0.96);
+    backdrop-filter: blur(16px);
   }
 
-  .navLinks.active {
-    right: 0;
-  }
-
-  .menuIcon {
-    display: block;
-  }
+  .navLinks.active { right: 0; }
 
   .navLinks li a {
-    font-size: 18px;
-    color: inherit;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    padding: 10px 14px;
   }
+
+  .menuIcon { display: block; }
 }

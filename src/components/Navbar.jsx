@@ -1,97 +1,63 @@
-import { FaRegCircle, FaBars, FaTimes } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { FaBars, FaTimes, FaCode } from "react-icons/fa";
 import { TiWeatherSunny } from "react-icons/ti";
 import { IoMoonOutline } from "react-icons/io5";
 import { useTheme } from "../context/themeContext";
-import { useState } from "react";
-import { Link } from "react-scroll"; // ✅ Import Link
+import { Link } from "react-scroll";
 import "../styles/navbar.css";
+
+const NAV_LINKS = [
+  { to: "home",         label: "Home" },
+  { to: "about",        label: "About" },
+  { to: "experience",   label: "Experience" },
+  { to: "skills",       label: "Skills" },
+  { to: "projects",     label: "Projects" },
+  { to: "certificates", label: "Certificates" },
+  { to: "contact",      label: "Contact" },
+];
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const handleMenuToggle = () => setMenuOpen(!menuOpen);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className={`navbar ${theme === "dark" ? "dark" : ""}`}>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="logo">
-        <FaRegCircle />
-        Abdul Rafay
+        <FaCode className="logo-icon" />
+        <span>Abdul <strong>Rafay</strong></span>
       </div>
+
       <ul className={`navLinks ${menuOpen ? "active" : ""}`}>
+        {NAV_LINKS.map(({ to, label }) => (
+          <li key={to}>
+            <Link
+              to={to}
+              smooth={true}
+              duration={500}
+              offset={-80}
+              spy={true}
+              activeClass="nav-active"
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
         <li>
-          <Link
-            to="home"
-            smooth={true}
-            duration={500}
-            offset={-80} // adjust for fixed navbar
-            onClick={() => setMenuOpen(false)}
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            offset={-80}
-            onClick={() => setMenuOpen(false)}
-          >
-            About
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="experience"
-            smooth={true}
-            duration={500}
-            offset={-80}
-            onClick={() => setMenuOpen(false)}
-          >
-            Experience
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="skills"
-            smooth={true}
-            duration={500}
-            offset={-80}
-            onClick={() => setMenuOpen(false)}
-          >
-            Skills
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="projects"
-            smooth={true}
-            duration={500}
-            offset={-80}
-            onClick={() => setMenuOpen(false)}
-          >
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            offset={-80}
-            onClick={() => setMenuOpen(false)}
-          >
-            Contact
-          </Link>
-        </li>
-        <li>
-          <button onClick={toggleTheme} className="themeToggle">
+          <button onClick={toggleTheme} className="themeToggle" aria-label="Toggle theme">
             {theme === "dark" ? <TiWeatherSunny /> : <IoMoonOutline />}
           </button>
         </li>
       </ul>
-      <div className="menuIcon" onClick={handleMenuToggle}>
+
+      <div className="menuIcon" onClick={() => setMenuOpen((o) => !o)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
     </nav>

@@ -1,0 +1,91 @@
+/* Hide native cursor on pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+/* ── Theme-aware cursor colours ───────────────────────────────
+   Light mode ring → dark semi-transparent
+     • white body  : dark on white = high contrast ✓
+     • green footer: dark on bright green = high contrast ✓
+   Dark mode ring → white semi-transparent
+     • dark body   : white on dark = high contrast ✓
+     • dark footer : white on near-black = high contrast ✓
+   Hover always → accent green (portfolio theme moment)
+   ──────────────────────────────────────────────────────────── */
+:root {
+  --c-ring:       rgba(15, 15, 15, 0.5);
+  --c-ring-hover: #00c26f;
+}
+html.dark {
+  --c-ring:       rgba(255, 255, 255, 0.5);
+  --c-ring-hover: #00c26f;
+}
+
+/* ── Dot — snaps exactly to mouse position ─────────────────── */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 5px;
+  height: 5px;
+  background: #00c26f;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 999999;
+  will-change: left, top;
+
+  /* white halo → visible on green footer
+     dark outer  → visible on white body  */
+  box-shadow:
+    0 0 0 1.5px rgba(255, 255, 255, 0.85),
+    0 0 0 2.5px  rgba(0,   0,   0,   0.1);
+
+  transition: width 0.18s cubic-bezier(0.16,1,0.3,1),
+              height 0.18s cubic-bezier(0.16,1,0.3,1),
+              opacity 0.2s ease;
+}
+
+/* ── Ring — lags behind (organic feel) ────────────────────── */
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--c-ring);
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 999998;
+  will-change: left, top;
+
+  transition: width        0.35s cubic-bezier(0.16,1,0.3,1),
+              height       0.35s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.25s ease,
+              background   0.25s ease,
+              opacity      0.2s  ease;
+}
+
+/* ── Hover ─────────────────────────────────────────────────── */
+.cursor-dot.is-hovering  { width: 8px; height: 8px; }
+
+.cursor-ring.is-hovering {
+  width:        46px;
+  height:       46px;
+  border-color: var(--c-ring-hover);
+  background:   rgba(0, 194, 111, 0.07);
+}
+
+/* ── Click — quick compress, spring back ───────────────────── */
+.cursor-dot.is-clicking  { width: 3px; height: 3px; transition-duration: 0.06s; }
+
+.cursor-ring.is-clicking {
+  width:        24px;
+  height:       24px;
+  border-color: #00c26f;
+  transition-duration: 0.06s;
+}
+
+/* ── Hidden when cursor leaves the browser window ─────────── */
+.cursor-dot.is-hidden,
+.cursor-ring.is-hidden { opacity: 0; }

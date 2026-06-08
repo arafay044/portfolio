@@ -1,72 +1,39 @@
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { Link } from "react-scroll"; // ✅ import Link
+import { Link } from "react-scroll";
 import "../styles/footer.css";
 
 const Footer = () => {
   return (
     <footer className="my-footer">
       <div className="footer-container">
-        {/* Logo / Name */}
-        <h2 className="footer-logo">Abdul Rafay</h2>
+        <div>
+          <h2 className="footer-logo">Abdul Rafay</h2>
+          <p className="footer-tagline">Full Stack Engineer · Building things for the web</p>
+        </div>
 
-        {/* Navigation */}
         <ul className="footer-links">
-          <li>
-            <Link to="home" smooth={true} duration={500} offset={-80}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="about" smooth={true} duration={500} offset={-80}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="experience" smooth={true} duration={500} offset={-80}>
-              Experience
-            </Link>
-          </li>
-          <li>
-            <Link to="skills" smooth={true} duration={500} offset={-80}>
-              Skills
-            </Link>
-          </li>
-          <li>
-            <Link to="projects" smooth={true} duration={500} offset={-80}>
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link to="contact" smooth={true} duration={500} offset={-80}>
-              Contact
-            </Link>
-          </li>
+          {["home","about","experience","skills","projects","certificates","contact"].map((to) => (
+            <li key={to}>
+              <Link to={to} smooth={true} duration={500} offset={-80}>
+                {to.charAt(0).toUpperCase() + to.slice(1)}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        {/* Socials */}
         <div className="footer-socials">
-          <a
-            href="https://github.com/arafay044/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://github.com/arafay044/" target="_blank" rel="noreferrer" aria-label="GitHub">
             <FaGithub />
           </a>
-          <a
-            href="http://linkedin.com/in/abdul-rafay044"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="http://linkedin.com/in/abdul-rafay044" target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <FaLinkedin />
           </a>
-          <a
-            href="https://x.com/arafay044"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://x.com/arafay044" target="_blank" rel="noreferrer" aria-label="Twitter">
             <FaTwitter />
           </a>
         </div>
+
+        <div className="footer-divider" />
       </div>
 
       <p className="footer-copy">

@@ -1,0 +1,116 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080808;
+  overflow: hidden;
+}
+
+/* Curtain exit — slides upward */
+.preloader--exit {
+  animation: curtainUp 0.75s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes curtainUp {
+  to { transform: translateY(-100%); }
+}
+
+/* Inner content fades out slightly before curtain */
+.preloader--exit .preloader-inner {
+  animation: innerFade 0.4s ease forwards;
+}
+
+@keyframes innerFade {
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ---- Inner content ---- */
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ---- Name ---- */
+.preloader-name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: clamp(38px, 8vw, 72px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: #fff;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.preloader-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px) rotateX(-80deg);
+  animation: letterDrop 0.55s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes letterDrop {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* Highlight "Rafay" (last word) */
+.preloader-letter:nth-child(n+8) {
+  color: #00c26f;
+}
+
+/* ---- Subtitle ---- */
+.preloader-sub {
+  font-size: clamp(13px, 2vw, 16px);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  opacity: 0;
+  animation: subFade 0.6s ease 0.9s forwards;
+}
+
+@keyframes subFade {
+  to { opacity: 1; }
+}
+
+/* ---- Progress bar ---- */
+.preloader-bar-track {
+  width: min(320px, 60vw);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.preloader-bar-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00c26f, #00e87f);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(0, 194, 111, 0.7);
+  animation: barFill 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+@keyframes barFill {
+  to { width: 100%; }
+}
+
+/* ---- Curtain edge decoration ---- */
+.preloader-curtain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00c26f, transparent);
+}

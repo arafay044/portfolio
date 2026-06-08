@@ -2,23 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 :root {
-  --primary: #00c26f;
+  --primary:   #00c26f;
   --secondary: #333333;
-  --light: #f9f9f9;
-  --text: #555555;
+  --light:     #f9f9f9;
+  --text:      #555555;
 }
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Outfit", "Inter", sans-serif;
   background: #fff;
   color: var(--text);
   line-height: 1.6;
   transition: background 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,6 +39,8 @@ button {
 }
 
 html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* offset for fixed navbar */
   transition: background 0.4s ease, color 0.4s ease;
 }
 
@@ -71,13 +74,52 @@ html.dark body {
   color: #f1f1f1;
 }
 
-html.dark h1, 
-html.dark h2, 
-html.dark h3, 
-html.dark h4, 
-html.dark h5, 
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
 html.dark h6 {
   color: #f1f1f1;
+}
+
+/* ---- Glassmorphism cards — dark mode ---- */
+html.dark .timeline-content,
+html.dark .my-about .experience-card,
+html.dark .my-skills .skills-container .skill-bar {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+}
+
+html.dark .my-about .experience-card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .my-about .experience-card h1 {
+  color: #00c26f;
+}
+
+html.dark .my-about .experience-card p {
+  color: #ccc;
+}
+
+html.dark .my-projects .project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+html.dark .my-projects .tag {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ddd;
+}
+
+html.dark .my-projects .project-desc {
+  color: #bbb;
+}
+
+html.dark .skill-bar .progress {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 
@@ -136,5 +178,112 @@ html.dark .themeToggle {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #009b59; /* hover effect */
+  background-color: #009b59;
+}
+
+/* =========================================
+   SECTION WATERMARK NUMBERS
+   ========================================= */
+.my-about .about-heading,
+.my-experience .experience-heading,
+.my-skills .skills-heading,
+.my-projects .projects-heading,
+.my-certificates .certs-heading,
+.my-contact .contact-heading {
+  position: relative;
+}
+
+.my-about .about-heading::before        { content: "01"; }
+.my-experience .experience-heading::before { content: "02"; }
+.my-skills .skills-heading::before      { content: "03"; }
+.my-projects .projects-heading::before  { content: "04"; }
+.my-certificates .certs-heading::before { content: "05"; }
+.my-contact .contact-heading::before    { content: "06"; }
+
+.my-about .about-heading::before,
+.my-experience .experience-heading::before,
+.my-skills .skills-heading::before,
+.my-projects .projects-heading::before,
+.my-certificates .certs-heading::before,
+.my-contact .contact-heading::before {
+  position: absolute;
+  font-size: 9rem;
+  font-weight: 900;
+  color: rgba(0, 194, 111, 0.055);
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: -6px;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+html.dark .my-about .about-heading::before,
+html.dark .my-experience .experience-heading::before,
+html.dark .my-skills .skills-heading::before,
+html.dark .my-projects .projects-heading::before,
+html.dark .my-certificates .certs-heading::before,
+html.dark .my-contact .contact-heading::before {
+  color: rgba(0, 194, 111, 0.07);
+}
+
+/* =========================================
+   GLOBAL SCROLL-REVEAL ANIMATIONS
+   ========================================= */
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(35px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes skillFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pre-slide-left  { opacity: 0; transform: perspective(700px) rotateY(25deg) translateX(-50px); }
+.pre-slide-right { opacity: 0; transform: perspective(700px) rotateY(-25deg) translateX(50px); }
+
+.slide-in-left {
+  animation: slide3dLeft 0.85s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.slide-in-right {
+  animation: slide3dRight 0.85s cubic-bezier(0.23, 1, 0.32, 1) 0.15s forwards;
+}
+
+@keyframes slide3dLeft {
+  to {
+    opacity: 1;
+    transform: perspective(700px) rotateY(0deg) translateX(0);
+  }
+}
+
+@keyframes slide3dRight {
+  to {
+    opacity: 1;
+    transform: perspective(700px) rotateY(0deg) translateX(0);
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "Abdul Rafay — Full Stack Engineer",
+  "short_name": "Rafay Portfolio",
+  "description": "Full Stack Engineer specializing in React, FastAPI, and Node.js.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00c26f",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

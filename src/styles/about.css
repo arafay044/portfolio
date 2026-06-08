@@ -41,7 +41,13 @@
   height: 320px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 194, 111, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.my-about .about-left .about-image:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 194, 111, 0.28);
 }
 
 .my-about .about-left .about-image img {
@@ -80,6 +86,14 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   flex: 1;
   min-width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.my-about .experience-card:hover {
+  transform: perspective(500px) rotateX(-8deg) rotateY(6deg) translateZ(16px);
+  box-shadow: 0 20px 40px rgba(0, 194, 111, 0.2);
 }
 
 .my-about .experience-card h1 {

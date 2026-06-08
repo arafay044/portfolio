@@ -1,0 +1,107 @@
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* background gradient */
+html.light .not-found { background: #f9f9f9; }
+html.dark  .not-found { background: #0d0d0d; }
+
+/* ---- Content ---- */
+.nf-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.nf-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #00c26f;
+}
+
+/* Giant 404 */
+.nf-code {
+  font-size: clamp(100px, 20vw, 180px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -8px;
+  margin: 0;
+  display: flex;
+  gap: 4px;
+}
+
+html.light .nf-code { color: #111; }
+html.dark  .nf-code { color: #f1f1f1; }
+
+/* Middle zero pulses green */
+.nf-zero {
+  color: #00c26f;
+  display: inline-block;
+  animation: zeroFloat 3s ease-in-out infinite;
+}
+
+@keyframes zeroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+.nf-message {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 340px;
+  opacity: 0.65;
+}
+
+.nf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: #00c26f;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: background 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,194,111,0.3);
+}
+
+.nf-btn:hover {
+  background: #009b59;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0,194,111,0.45);
+}
+
+/* ---- Ambient particles (same as hero) ---- */
+.nf-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.nf-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,194,111,0.25);
+  animation: nfFloat linear infinite;
+}
+
+@keyframes nfFloat {
+  0%   { transform: translateY(0)     scale(1);    opacity: 0.3; }
+  50%  { transform: translateY(-40px) scale(1.2);  opacity: 0.7; }
+  100% { transform: translateY(0)     scale(1);    opacity: 0.3; }
+}
