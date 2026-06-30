@@ -12,6 +12,14 @@ const Skills = () => {
     setTabKey((k) => k + 1);
   };
 
+  const tabLabels = {
+    frontend:  "Frontend",
+    backend:   "Backend",
+    languages: "Languages",
+    devops:    "DevOps",
+    tools:     "Tools",
+  };
+
   const skillsData = {
     frontend: [
       { name: "HTML",         level: 95 },
@@ -21,26 +29,39 @@ const Skills = () => {
       { name: "React",        level: 90 },
       { name: "Tailwind CSS", level: 90 },
       { name: "Next.js",      level: 80 },
+      { name: "Bootstrap",    level: 75 },
     ],
     backend: [
-      { name: "Node.js",     level: 80 },
-      { name: "Express.js",  level: 80 },
-      { name: "FastAPI",     level: 75 },
-      { name: "MongoDB",     level: 75 },
-      { name: "PostgreSQL",  level: 65 },
-      { name: "MySQL",       level: 65 },
+      { name: "Node.js",       level: 80 },
+      { name: "Express.js",    level: 80 },
+      { name: "FastAPI",       level: 75 },
+      { name: "Grails/Spring", level: 65 },
+      { name: "JWT Auth",      level: 80 },
+      { name: "Socket.IO",     level: 75 },
+      { name: "MongoDB",       level: 75 },
+      { name: "PostgreSQL",    level: 65 },
+      { name: "MySQL",         level: 65 },
     ],
-    programming: [
+    languages: [
       { name: "JavaScript (ES6+)", level: 85 },
+      { name: "TypeScript",        level: 75 },
       { name: "Python",            level: 75 },
       { name: "C++",               level: 80 },
       { name: "Groovy",            level: 65 },
+      { name: "Java",              level: 65 },
     ],
-    misc: [
+    devops: [
+      { name: "Docker",          level: 70 },
+      { name: "Docker Compose",  level: 70 },
+      { name: "GitHub Actions",  level: 70 },
+      { name: "Nginx",           level: 65 },
+      { name: "AWS (EC2)",       level: 65 },
+    ],
+    tools: [
       { name: "Git & GitHub", level: 85 },
-      { name: "Socket.IO",    level: 75 },
       { name: "Postman",      level: 80 },
       { name: "Linux",        level: 70 },
+      { name: "npm",          level: 80 },
     ],
   };
 
@@ -58,7 +79,7 @@ const Skills = () => {
             className={`tab-btn ${activeTab === tab ? "active" : ""}`}
             onClick={() => handleTab(tab)}
           >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            {tabLabels[tab] || tab.charAt(0).toUpperCase() + tab.slice(1)}
           </button>
         ))}
       </div>
