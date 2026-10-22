@@ -64,10 +64,13 @@ const About = () => {
 
         <div className={`about-right ${inView ? "slide-in-right" : "pre-slide-right"}`}>
           <p className="about-desc">
-            I am a passionate <span>Fullstack Developer</span> with 2+ years of
-            experience building modern, responsive, and accessible web
-            applications. I love solving problems with clean code and bringing
-            ideas to life through design & development.
+            I am a <span>Full Stack Engineer</span> shipping production software
+            in two concurrent roles: remote with a US team at AlxTel and on-site
+            at AizTek. I build features end to end across React and
+            Python/FastAPI or Grails/Groovy backends, from a multi-tenant
+            government-contracting SaaS and the rebuild of a live UK
+            funeral-plan platform (as lead developer) to LLM features like
+            text-to-SQL and hybrid RAG.
           </p>
 
           <div className="about-experience">

@@ -14,10 +14,10 @@ const Experience = () => {
 
   const academicData = [
     {
-      title: "Bachelor of Computer Science",
-      subtitle: "PMAS Arid Agriculture University",
-      duration: "2023 – 2027",
-      desc: "Specializing in Computer Science with focus on full-stack development, UI/UX, and modern web technologies. Current CGPA: 3.87 / 4.00.",
+      title: "BS Computer Science",
+      subtitle: "PMAS-Arid Agriculture University (UIIT)",
+      duration: "2023 – May 2027 (Expected)",
+      desc: "CGPA 3.84 / 4.00. Final Year Project: PATRON, an AI-assisted referral hiring platform (in development). Coursework: Artificial Intelligence, Data Structures, OOP, Software Engineering, Databases.",
     },
     {
       title: "F.Sc Pre-Engineering",
@@ -30,15 +30,15 @@ const Experience = () => {
   const professionalData = [
     {
       title: "Full Stack Engineer",
-      subtitle: "AlxTel, Inc.",
+      subtitle: "AlxTel, Inc. · Remote (US-based team)",
       duration: "April 2026 – Present",
-      desc: "Developing a US government procurement automation platform using Python, FastAPI, React, and Grails — working asynchronously within a remote US engineering team.",
+      desc: "GovOps360, a multi-tenant government-contracting SaaS (React 18, Redux Toolkit, Grails 7, PostgreSQL, Meilisearch, Stripe): built modules across leads, quotations, proposals, purchase orders and subcontractors, Opportunities Intel reports (FEMA, NIH, awards) with cron refresh jobs, and RFP upload with requirement extraction. ConsoleLLM (FastAPI, Groq, ChromaDB): contributed to a text-to-SQL service that validates LLM query plans against an allowlisted schema and compiles them into parameterized SQL, adding multi-hop joins and hybrid semantic retrieval.",
     },
     {
       title: "Full Stack Engineer",
-      subtitle: "AizTek Technologies",
+      subtitle: "AizTek Technologies · On-site, Rawalpindi",
       duration: "April 2026 – Present",
-      desc: "Building scalable enterprise software across React/Tailwind frontend and Python/Grails backend, contributing full-stack features in a structured team environment.",
+      desc: "Lead developer on Plan With Grace, a funeral-plan management platform for a UK client: rebuilding the legacy Grails 3 app on Grails 7.2.1 and React 19 with backend-driven pages for plans, payments, documents and reseller views. Integrated GoCardless direct debit, Xero invoices, HubSpot and Memoria sync, and RabbitMQ email/SMS; fixed payment-processing and uplift-report bugs and added CSV export.",
     },
     {
       title: "Full Stack Developer (Freelance)",
@@ -50,13 +50,13 @@ const Experience = () => {
       title: "Web Developer",
       subtitle: "Softezm",
       duration: "Aug 2025 – Nov 2025",
-      desc: "Led full-stack development of a SaaS School Management System with React, Node.js, and Tailwind CSS. Defined Git conventions for a 3-person team.",
+      desc: "Led development of a SaaS school management system (React, Node.js, Express) and set up Git branching and PR conventions for a three-person team.",
     },
     {
       title: "MERN Stack Developer Intern",
       subtitle: "Crypstac",
       duration: "Jul 2025 – Sep 2025",
-      desc: "Built React UI components and Node.js/Express REST endpoints for a live production app. Refactored 5+ modules into reusable components.",
+      desc: "Built React components and Express/MongoDB REST endpoints for a live product; refactored 5+ UI modules into reusable components.",
     },
   ];
 

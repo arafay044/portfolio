@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiLock } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import "../styles/project.css";
 import useInView from "../hooks/useInView";
@@ -28,6 +28,45 @@ const handleTiltLeave = (e) => {
 
 const PROJECTS = [
   {
+    title: "GovOps360",
+    category: "Professional",
+    img: "/images/govops360.jpg",
+    problem: "How do government contractors go from finding a bid to delivering the contract in one place?",
+    desc: "AI-powered, multi-tenant platform for government contractors covering capture, proposals and contract delivery. At AlxTel I built modules across leads, quotations, proposals, purchase orders and subcontractors, Opportunities Intel reports (FEMA, NIH, awards) with scheduled refresh jobs, and RFP upload with requirement extraction.",
+    tags: ["React 18", "Redux Toolkit", "Grails 7", "PostgreSQL", "Meilisearch", "Stripe"],
+    demo: "https://govops360.com/",
+    note: "Private codebase",
+  },
+  {
+    title: "ConsoleLLM",
+    category: "Professional",
+    img: "/images/consolellm.png",
+    problem: "How do you let an LLM query CRM data without ever writing unsafe SQL?",
+    desc: "Text-to-SQL service at AlxTel: the LLM writes a JSON query plan that is validated against an allowlisted schema and compiled into parameterized SQL, with multi-hop joins and a hybrid semantic-retrieval mode.",
+    tags: ["FastAPI", "Groq LLM", "ChromaDB", "sentence-transformers", "MySQL"],
+    note: "Private client work",
+  },
+  {
+    title: "Plan With Grace",
+    category: "Professional",
+    img: "/images/plan-with-grace.jpg",
+    problem: "How do you move a live UK funeral-plan provider off a legacy stack without breaking payments?",
+    desc: "Platform behind With Grace, an FCA-regulated UK provider of funeral plans and direct cremations. As lead developer at AizTek I'm rebuilding it from Grails 3 to Grails 7 and React 19, with backend-driven pages for plans, payments, documents and resellers, plus GoCardless, Xero, HubSpot and RabbitMQ email/SMS integrations.",
+    tags: ["Grails 7", "React 19", "MySQL", "GoCardless", "Xero", "RabbitMQ"],
+    demo: "https://funeralswithgrace.com/",
+    note: "Private codebase",
+  },
+  {
+    title: "PATRON",
+    category: "Fullstack",
+    img: "/images/patron.jpg",
+    problem: "What if every job application arrived backed by someone who can vouch for you?",
+    desc: "Final Year Project, built with a team of three: a referral-hiring platform where every application is backed by a verified connection, employee or fellow graduate, and nothing reaches an employer without the candidate's consent. Smart Match ranks who in your network can refer you by combining role fit with how strongly each contact is placed.",
+    tags: ["React", "Vite", "Tailwind CSS", "AI Matching", "Verification"],
+    demo: "https://patron-web-ruby.vercel.app/",
+    note: "In development",
+  },
+  {
     title: "Blogify",
     category: "Fullstack",
     img: "/images/blog.png",
@@ -52,7 +91,7 @@ const PROJECTS = [
     category: "Fullstack",
     img: "/images/chat-app.png",
     problem: "How do you show real-time presence and typing state at scale?",
-    desc: "Real-time messaging platform supporting 15+ concurrent users with instant delivery, typing indicators, live presence tracking via Socket.IO, and JWT-secured sessions.",
+    desc: "Real-time messaging supporting 15+ concurrent users, with online presence, typing indicators and JWT-secured WebSockets via Socket.IO.",
     tags: ["React", "Node.js", "Socket.IO", "MongoDB", "JWT"],
     demo: "https://chatapp-mu-blue.vercel.app/login",
     code: "https://github.com/arafay044/chatapp",
@@ -61,9 +100,9 @@ const PROJECTS = [
     title: "AI-Based E-Commerce",
     category: "Fullstack",
     img: "/images/ecommerce-ai.png",
-    problem: "How do you serve a customer storefront and admin dashboard from one backend?",
-    desc: "Full-stack e-commerce platform with dual interfaces: customer storefront and admin dashboard. Features Stripe payments, Cloudinary CDN, JWT RBAC, and real-time inventory management.",
-    tags: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Cloudinary", "JWT"],
+    problem: "How do you let shoppers search for products in plain English?",
+    desc: "Natural-language product search: stop-word filtering and a PostgreSQL keyword pre-filter (up to 200 candidates), then Gemini picks the best matches as JSON. Plus Stripe webhooks, Cloudinary uploads, JWT auth and an admin analytics dashboard.",
+    tags: ["React", "Express", "PostgreSQL", "Gemini", "Stripe", "Cloudinary", "JWT"],
     demo: "https://ecommerce-webapp-aibased.netlify.app/",
     code: "https://github.com/arafay044/ecommerce-backend",
     adminDemo: "https://ecommerce-admin-dashboard-ar.netlify.app/",
@@ -138,22 +177,31 @@ const Projects = () => {
               <img src={proj.img} alt={proj.title} width="800" height="500" loading="lazy" decoding="async" />
               <div className="project-overlay">
                 <div className="overlay-links">
-                  <a
-                    href={proj.demo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="overlay-btn"
-                  >
-                    <FiExternalLink /> Live Demo
-                  </a>
-                  <a
-                    href={proj.code}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="overlay-btn"
-                  >
-                    <FaGithub /> Source
-                  </a>
+                  {proj.demo && (
+                    <a
+                      href={proj.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="overlay-btn"
+                    >
+                      <FiExternalLink /> Live Demo
+                    </a>
+                  )}
+                  {proj.code && (
+                    <a
+                      href={proj.code}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="overlay-btn"
+                    >
+                      <FaGithub /> Source
+                    </a>
+                  )}
+                  {proj.note && (
+                    <span className="overlay-btn">
+                      <FiLock /> {proj.note}
+                    </span>
+                  )}
                   {proj.adminDemo && (
                     <a
                       href={proj.adminDemo}
@@ -187,12 +235,21 @@ const Projects = () => {
 
               {/* minimal text links — visible on mobile only; desktop uses image overlay */}
               <div className="project-links">
-                <a href={proj.demo} target="_blank" rel="noreferrer" className="proj-link">
-                  <FiExternalLink /> Live Demo
-                </a>
-                <a href={proj.code} target="_blank" rel="noreferrer" className="proj-link">
-                  <FaGithub /> Code
-                </a>
+                {proj.demo && (
+                  <a href={proj.demo} target="_blank" rel="noreferrer" className="proj-link">
+                    <FiExternalLink /> Live Demo
+                  </a>
+                )}
+                {proj.code && (
+                  <a href={proj.code} target="_blank" rel="noreferrer" className="proj-link">
+                    <FaGithub /> Code
+                  </a>
+                )}
+                {proj.note && (
+                  <span className="proj-link">
+                    <FiLock /> {proj.note}
+                  </span>
+                )}
                 {proj.adminDemo && (
                   <a href={proj.adminDemo} target="_blank" rel="noreferrer" className="proj-link">
                     <FiExternalLink /> Admin

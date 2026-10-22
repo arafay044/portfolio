@@ -4,10 +4,10 @@ import { Link } from "react-scroll";
 import "../styles/hero.css";
 
 const ROLES = [
-  "Full Stack Developer",
-  "React Specialist",
-  "FastAPI Engineer",
-  "Problem Solver",
+  "Full Stack Engineer",
+  "React Developer",
+  "FastAPI & Grails Engineer",
+  "LLM Application Builder",
 ];
 
 // Stable at module level — won't re-randomize on re-render
@@ -138,8 +138,9 @@ const Hero = () => {
             </div>
 
             <p className="hero-desc">
-              Building modern, scalable, and accessible web applications with a
-              passion for clean code and great user experiences.
+              Building production software end to end across React and
+              Python/FastAPI or Grails/Groovy backends, from multi-tenant SaaS
+              to LLM features like text-to-SQL and hybrid RAG.
             </p>
 
             <div className="hero-buttons">
